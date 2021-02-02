@@ -1,0 +1,12 @@
+<mat-progress-bar class="sticky" *ngIf="loadingCard" mode="indeterminate"></mat-progress-bar>
+<ul class="card-list">
+  <li class="card-list-item" *ngFor="let video of videoList">
+    <app-list-item [video]="video"></app-list-item>
+  </li>
+</ul>
+<div class="button-div">
+  <button class="centered" *ngIf="numVideos" mat-fab color="primary" (click)="getRandVideo()"
+    [disabled]="loadingCard" aria-label="randomize" >
+    <mat-icon>shuffle</mat-icon>
+  </button>
+</div>

@@ -1,15 +1,15 @@
 <mat-card class="video-card">
   <mat-card-header>
-    <img mat-card-avatar [src]="showImageUrl" alt="show">
-    <mat-card-title>{{ title }}</mat-card-title>
-    <mat-card-subtitle>{{ publishDate | date }}</mat-card-subtitle>
+    <img *ngIf="video.showImage" mat-card-avatar [src]="video.showImage" [alt]="video.showName">
+    <mat-card-title>{{ video.name }}</mat-card-title>
+    <mat-card-subtitle>{{ video.publishDate | date }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="videoImageUrl" [alt]="title">
+  <img class="card-image" mat-card-image [src]="video.image" [alt]="video.name">
   <mat-card-content>
-    <p>{{ deck }}</p>
+    <p>{{ video.deck }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <a mat-button [href]="linkUrl" target="_blank" rel="noopener">WATCH ON GIANT BOMB</a>
-    <a mat-button [href]="showUrl" target="_blank" rel="noopener">GO TO SHOW PAGE</a>
+    <a mat-button [href]="video.siteDetailUrl" target="_blank" rel="noopener">WATCH ON GIANT BOMB</a>
+    <a *ngIf="video.showDetailUrl" mat-button [href]="video.showDetailUrl" target="_blank" rel="noopener">GO TO SHOW PAGE</a>
   </mat-card-actions>
 </mat-card>
