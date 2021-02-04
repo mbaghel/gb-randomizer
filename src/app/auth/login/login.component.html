@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="welcome">
+    <mat-icon class="logo" color="primary">shuffle_on</mat-icon>
+    <h1 class="big">Giant Bomb Randomizer</h1>
+  </div>
+  <mat-vertical-stepper class="stepper" linear>
+    <mat-step label="Get link code">
+      <p>
+        Go to <a href="https://www.giantbomb.com/app/randomizer/" rel="noopener" target="_blank">https://www.giantbomb.com/app/testapp/</a>
+        to generate a link code for your account (Sign in if required).
+      </p>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Enter code" [stepControl]="codeForm">
+      <form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput type="text" placeholder="CODE" formControlName="code">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext color="primary">Link Account</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step label="Done">
+      <p>Loading...</p>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
