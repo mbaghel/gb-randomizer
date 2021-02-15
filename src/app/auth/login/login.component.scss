@@ -1,0 +1,27 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.logo {
+  font-size: 144px;
+  width: auto;
+  height: auto;
+}
+
+.stepper {
+  max-width: 700px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}

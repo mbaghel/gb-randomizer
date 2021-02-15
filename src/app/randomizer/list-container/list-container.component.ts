@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { RandomizerService } from '../randomizer.service';
 
@@ -14,11 +15,11 @@ export class ListContainerComponent implements OnInit {
   videoList = [];
   loadingCard = false;
 
-  constructor(private randomizerService: RandomizerService) { }
+  constructor(private randomizerService: RandomizerService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.randomizerService.getNumVideos()
-      .subscribe(body => {this.numVideos = body});
+      .subscribe(body => {this.numVideos = body}, err => { this.displayError(err.message)});
   }
 
   getRandVideo(): void {
@@ -27,6 +28,10 @@ export class ListContainerComponent implements OnInit {
       .subscribe(body => {
         this.videoList.push(body)
         this.loadingCard = false;
-      });
+      }, err => { this.displayError(err.message)});
+  }
+
+  displayError(msg: string) {
+    return this.snackBar.open(msg, '', { duration: 3000});
   }
 }

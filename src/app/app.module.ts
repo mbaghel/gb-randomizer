@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { RandomizerModule } from './randomizer/randomizer.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RandomizerModule } from './randomizer/randomizer.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     RandomizerModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
