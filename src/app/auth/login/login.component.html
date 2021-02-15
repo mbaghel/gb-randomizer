@@ -1,3 +1,4 @@
+<mat-progress-bar class="sticky" *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <div class="container">
   <div class="welcome">
     <mat-icon class="logo" color="primary">shuffle_on</mat-icon>
@@ -6,7 +7,7 @@
   <mat-vertical-stepper class="stepper" linear>
     <mat-step label="Get link code">
       <p>
-        Go to <a href="https://www.giantbomb.com/app/randomizer/" rel="noopener" target="_blank">https://www.giantbomb.com/app/testapp/</a>
+        Go to <a href="https://www.giantbomb.com/app/{{appName}}/" rel="noopener" target="_blank">https://www.giantbomb.com/app/{{appName}}/</a>
         to generate a link code for your account (Sign in if required).
       </p>
       <div>
@@ -25,7 +26,10 @@
       </form>
     </mat-step>
     <mat-step label="Done">
-      <p>Loading...</p>
+      <p>{{doneMsg}}</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
     </mat-step>
   </mat-vertical-stepper>
 </div>

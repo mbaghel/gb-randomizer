@@ -5,6 +5,15 @@
   margin-bottom: 1em;
 }
 
+@media only screen and (max-width: 392px) {
+  .mat-card-actions {
+    .mat-button {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
 .card-image {
   max-height: 243px;
   height: 54vw;
