@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
 
 import { RandomizerService } from '../randomizer.service';
 
@@ -19,19 +19,19 @@ export class ListContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.randomizerService.getNumVideos()
-      .subscribe(body => {this.numVideos = body}, err => { this.displayError(err.message)});
+      .subscribe(body => { this.numVideos = body; }, err => { this.displayError(err.message); });
   }
 
   getRandVideo(): void {
     this.loadingCard = true;
     this.randomizerService.getRandomVideo(this.numVideos)
       .subscribe(body => {
-        this.videoList.push(body)
+        this.videoList.push(body);
         this.loadingCard = false;
-      }, err => { this.displayError(err.message)});
+      }, err => { this.displayError(err.message); });
   }
 
-  displayError(msg: string) {
+  displayError(msg: string): MatSnackBarRef<TextOnlySnackBar> {
     return this.snackBar.open(msg, '', { duration: 3000});
   }
 }

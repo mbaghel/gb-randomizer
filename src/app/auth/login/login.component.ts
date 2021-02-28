@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const { code } = this.codeForm.value;
-    if (!code.length) return;
+    if (!code.length) { return; }
     this.doneMsg = 'Linking account...';
     this.loading = true;
     this.authService.login(code)
@@ -40,12 +40,12 @@ export class LoginComponent implements OnInit {
 
         if (this.authService.isLoggedIn()) {
           const redirectUrl = this.authService.redirectUrl;
-          this.router.navigate([redirectUrl])
+          this.router.navigate([redirectUrl]);
         }
       }, err => {
-        this.doneMsg = 'Failed to link! Please go back'
+        this.doneMsg = 'Failed to link! Please go back';
         this.snackBar.open(err.message, '', { duration: 3000 });
-      })
-      
+      });
+
   }
 }

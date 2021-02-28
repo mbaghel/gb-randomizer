@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
 import { HttpClientJsonpModule } from '@angular/common/http';
 
 import { SharedModule } from '../shared/shared.module';
