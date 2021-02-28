@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 import { RandomizerService } from '../randomizer.service';
 import { AuthService } from '../../auth/auth.service';
 
@@ -19,7 +20,8 @@ export class ListContainerComponent implements OnInit {
   constructor(private randomizerService: RandomizerService,
     private snackBar: MatSnackBar,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private scrollToService: ScrollToService
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +35,10 @@ export class ListContainerComponent implements OnInit {
       .subscribe(body => {
         this.videoList.push(body);
         this.loadingCard = false;
+        const config: ScrollToConfigOptions = {
+          target: 'randomize-button'
+        }
+        this.scrollToService.scrollTo(config); 
       }, err => { this.displayError(err.message); });
   }
 

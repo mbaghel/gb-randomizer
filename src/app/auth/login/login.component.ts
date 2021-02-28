@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate([redirectUrl]);
         }
       }, err => {
+        this.loading = false;
         this.doneMsg = 'Failed to link! Please go back';
         this.snackBar.open(err.message, '', { duration: 3000 });
       });

@@ -12,7 +12,7 @@
   </li>
 </ul>
 <div class="button-div">
-  <button class="centered" *ngIf="numVideos" mat-fab color="primary" (click)="getRandVideo()"
+  <button class="centered" id="randomize-button" *ngIf="numVideos" mat-fab color="primary" (click)="getRandVideo()"
     [disabled]="loadingCard" aria-label="randomize" >
     <mat-icon>shuffle</mat-icon>
   </button>

@@ -42,7 +42,6 @@ export class AuthService {
   }
 
   login(code: string): Observable<string> {
-    this.storage.setItem(TOKEN_KEY, 'logged in!');
     return this.http.get(`${PROXY_URL}${BASE_URL}${LOGIN_PATH}`, {
       params: {
         regCode: code,

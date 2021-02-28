@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { RandomizerModule } from './randomizer/randomizer.module';
 import { AuthModule } from './auth/auth.module';
 
@@ -18,7 +18,8 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     RandomizerModule,
-    AuthModule
+    AuthModule,
+    ScrollToModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
