@@ -1,4 +1,11 @@
-<mat-progress-bar class="sticky" *ngIf="loadingCard" mode="indeterminate"></mat-progress-bar>
+<mat-toolbar class="fixed toolbar" color="primary">
+  <span>GB Randomizer</span>
+  <span class="spacer"></span>
+  <button (click)="logout()" mat-icon-button aria-label="log out">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-progress-bar class="fixed loader" *ngIf="loadingCard" mode="indeterminate"></mat-progress-bar>
 <ul class="card-list">
   <li class="card-list-item" *ngFor="let video of videoList">
     <app-list-item [video]="video"></app-list-item>

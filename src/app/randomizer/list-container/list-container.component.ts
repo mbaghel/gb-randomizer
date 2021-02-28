@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
-
+import { Router } from '@angular/router';
 import { RandomizerService } from '../randomizer.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-list-container',
@@ -15,7 +16,11 @@ export class ListContainerComponent implements OnInit {
   videoList = [];
   loadingCard = false;
 
-  constructor(private randomizerService: RandomizerService, private snackBar: MatSnackBar) { }
+  constructor(private randomizerService: RandomizerService,
+    private snackBar: MatSnackBar,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.randomizerService.getNumVideos()
@@ -33,5 +38,10 @@ export class ListContainerComponent implements OnInit {
 
   displayError(msg: string): MatSnackBarRef<TextOnlySnackBar> {
     return this.snackBar.open(msg, '', { duration: 3000});
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
